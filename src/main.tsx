@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import App from './App';
 import SuccessPage from './SuccessPage';
 import formReducer from './features/form/formSlice';
@@ -17,12 +17,12 @@ const store = configureStore({
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter>
+      <Router>
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="/success" element={<SuccessPage />} />
         </Routes>
-      </BrowserRouter>
+      </Router>
     </Provider>
   </React.StrictMode>
 );
